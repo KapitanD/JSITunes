@@ -57,8 +57,12 @@
 						<button class="video-button video-button__play fa fa-play"></button>
 						<button class="video-button video-button__stop fa fa-stop"></button>
 						<p class="video-time video-time__passed">00:00</p>
-						<input type="range" class="video-progress" min="0" max="100" step="0.1" value="0">
-						<p class="video-time video-time__total">00:00</p>
+                        <input type="range" class="video-progress" min="0" max="100" step="0.1" value="0">
+                        <p class="video-time video-time__total">00:00</p>
+                        <span class="video-button fa fa-volume-down"></span>
+                        <input type="range" class="video-volume" min="0" max="100" step="1" value="100">
+                        <span class="video-button fa fa-volume-up"></span>
+                        <button class="video-button fa fa-external-link video-fullscreen"></button>
 					</nav>
 				</div>
 			</div>
@@ -174,7 +178,12 @@
 				</div>
 			</div>
 			<footer class="footer-fix radio-footer">
-				<button class="radio-stop fa fa-play"></button>
+                <button class="radio-stop fa fa-play"></button>
+                <div class="radio-volume-changer">
+                    <span class="radio-button fa fa-volume-down"></span>
+                    <input type="range" class="radio-volume" min="0" max="100" step="1" value="100">
+                    <span class="radio-button fa fa-volume-up"></span>
+                </div>
 			</footer>
 		</article>
 	</main>
