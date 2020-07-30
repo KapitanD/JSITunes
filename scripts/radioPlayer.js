@@ -1,11 +1,12 @@
 export const radioPlayerInit = () => {
-    const radio = document.querySelector(".radio"); 
+    const radio = document.querySelector(".radio");
     const radioCoverImg = document.querySelector(".radio-cover__img");
     const radioNavigation = document.querySelector(".radio-navigation");
     const radioHeaderBig = document.querySelector(".radio-header__big");
     const radioItem = document.querySelectorAll(".radio-item");
     const radioStop = document.querySelector(".radio-stop");
     const radioVolume = document.querySelector('.radio-volume');
+    const playerBtn = document.querySelectorAll('.player-btn');
 
     const audio = new Audio();
     audio.type = "audio/aac";
@@ -18,11 +19,11 @@ export const radioPlayerInit = () => {
     };
 
     const changeIconPlay = () => {
-        if(audio.paused){
-            radio.classList.remove('play')
+        if (audio.paused) {
+            radio.classList.remove('play');
             radioStop.classList.remove('fa-stop');
             radioStop.classList.add('fa-play');
-        } else{
+        } else {
             radio.classList.add('play');
             radioStop.classList.remove('fa-play');
             radioStop.classList.add('fa-stop');
@@ -48,10 +49,9 @@ export const radioPlayerInit = () => {
     });
 
     radioStop.addEventListener('click', () => {
-        if(audio.paused){
+        if (audio.paused) {
             audio.play();
-        }
-        else{
+        } else {
             audio.pause();
         }
         changeIconPlay();
@@ -59,5 +59,16 @@ export const radioPlayerInit = () => {
 
     radioVolume.addEventListener('input', () => {
         audio.volume = radioVolume.value / 100;
+    });
+
+    playerBtn.forEach((btn, i) => {
+        if (!btn.classList.contains('player-radio')) {
+            btn.addEventListener('click', () => {
+                audio.pause();
+                radio.classList.remove('play');
+                radioStop.classList.remove('fa-stop');
+                radioStop.classList.add('fa-play');
+            });
+        }
     });
 };
